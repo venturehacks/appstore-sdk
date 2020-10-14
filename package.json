@@ -1,0 +1,25 @@
+{
+  "name": "angellist-appstore-sdk",
+  "version": "0.0.1",
+  "description": "The SDK for making an app to run on the angellist platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venturehacks/appstore-sdk.git"
+  },
+  "author": "Angellist",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/venturehacks/appstore-sdk/issues"
+  },
+  "homepage": "https://github.com/venturehacks/appstore-sdk#readme",
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}
