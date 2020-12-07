@@ -3,15 +3,15 @@ import React, { useEffect } from 'react';
 interface AppstoreContextType {
   appUserId: string;
   endUserSession: () => void;
-  useGetUserData: () => { 
-    getUserDataLoading: boolean,
-    getUserDataCalled: boolean,
-    getUserDataError: any,
-    userData: String,
+  useAppUserData: () => { 
+    appUserDataLoading: boolean,
+    appUserDataCalled: boolean,
+    appUserDataError: any,
+    appUserData: String,
     appUserId: String
   };
-  useSubmitUserData: (data: string) => void;
-  useMakeApiRequest: (input: MakeApiRequestParams) => any;
+  submitAppUserData: (data: string) => void;
+  makeApiRequest: (input: MakeApiRequestParams) => any;
 }
 
 export const AppstoreContext = React.createContext({} as AppstoreContextType);
@@ -40,10 +40,10 @@ export interface HeaderOrParamType {
 }
 
 export interface MakeApiRequestParams {
-  body: string;
   endpoint: string;
-  endpointParams: HeaderOrParamType[];
-  headers: HeaderOrParamType[];
   requestType: RequestType;
-  secretNames: string[];
+  endpointParams?: HeaderOrParamType[];
+  headers?: HeaderOrParamType[];
+  secretNames?: string[];
+  body?: string;
 }
