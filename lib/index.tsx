@@ -47,3 +47,58 @@ export interface MakeApiRequestParams {
   secretNames?: string[];
   body?: string;
 }
+export interface ManifestType {
+  app_slug: string;
+  author: string;
+  description: string;
+  homepage_url: string;
+  name: string;
+  subroutes: UnserializedSubrouteObject[];
+  version: number;
+}
+
+export interface UnserializedSubrouteObject {
+  data: UnserializedSubrouteDataObjectType;
+  name: string;
+  subroute_slug: string;
+  subroute_type: SubrouteType;
+}
+
+export type UnserializedSubrouteDataObjectType = UnserializedAssessmentDataObject;
+
+export interface UnserializedAssessmentDataObject {
+  allotted_duration_in_minutes: number;
+  autograding: string;
+  categories: string[];
+  difficulty: DifficultyType;
+  example_header: string;
+  grade_shape: string;
+  long_description: string;
+  relevant_roles: string[];
+  retake_policy: string;
+  short_description: string;
+  suggested_duration_in_minutes: number;
+  time_text: string;
+  type: string;
+  why_take: string;
+}
+
+export interface AsseessmentDataObjectType {
+  allotted_duration_in_minutes: number;
+  autograding: string;
+  categories: string[];
+  difficulty: string;
+  example_header: string;
+  grade_shape: string;
+  long_description: string;
+  relevant_roles: string[];
+  retake_policy: string;
+  short_description: string;
+  suggested_duration_in_minutes: number;
+  time_text: string;
+  type: string;
+  why_take: string;
+}
+
+export type DifficultyType = 'EASY' | 'MEDIUM' | 'HARD';
+export type SubrouteType = 'assessment';
