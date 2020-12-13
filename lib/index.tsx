@@ -10,7 +10,7 @@ interface AppstoreContextType {
     appUserData: String,
     appUserId: String
   };
-  submitAppUserData: (data: string) => void;
+  submitAppUserData: () => void;
   makeApiRequest: (input: MakeApiRequestParams) => any;
 }
 
@@ -53,41 +53,24 @@ export interface ManifestType {
   description: string;
   homepage_url: string;
   name: string;
-  subroutes: UnserializedSubrouteObject[];
+  subroutes: UnserializedSubrouteData[];
   version: number;
 }
 
-export interface UnserializedSubrouteObject {
-  data: UnserializedSubrouteDataObjectType;
+export interface UnserializedSubrouteData {
+  type_specific_data: UnserializedSubrouteTypeSpecificData;
   name: string;
-  subroute_slug: string;
-  subroute_type: SubrouteType;
+  slug: string;
+  type: SubrouteType;
 }
 
-export type UnserializedSubrouteDataObjectType = UnserializedAssessmentDataObject;
+export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
 
-export interface UnserializedAssessmentDataObject {
+export interface UnserializedAssessmentData {
   allotted_duration_in_minutes: number;
   autograding: string;
   categories: string[];
   difficulty: DifficultyType;
-  example_header: string;
-  grade_shape: string;
-  long_description: string;
-  relevant_roles: string[];
-  retake_policy: string;
-  short_description: string;
-  suggested_duration_in_minutes: number;
-  time_text: string;
-  type: string;
-  why_take: string;
-}
-
-export interface AsseessmentDataObjectType {
-  allotted_duration_in_minutes: number;
-  autograding: string;
-  categories: string[];
-  difficulty: string;
   example_header: string;
   grade_shape: string;
   long_description: string;
