@@ -33,7 +33,7 @@ export interface GetResultsObjectType {
   customFields: CustomFieldType[] | undefined;
 }
 
-export type RequestType = 'GET' | 'POST';
+export type RequestMethod = 'GET' | 'POST';
 export interface HeaderOrParamType {
   name: string;
   value: string;
@@ -41,7 +41,7 @@ export interface HeaderOrParamType {
 
 export interface MakeApiRequestParams {
   endpoint: string;
-  requestType: RequestType;
+  requestType: RequestMethod;
   endpointParams?: HeaderOrParamType[];
   headers?: HeaderOrParamType[];
   secretNames?: string[];
@@ -60,8 +60,8 @@ export interface ManifestType {
 export interface UnserializedSubrouteData {
   type_specific_data: UnserializedSubrouteTypeSpecificData;
   name: string;
-  slug: string;
-  type: SubrouteType;
+  subroute_slug: string;
+  subroute_type: SubrouteType;
 }
 
 export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
