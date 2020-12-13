@@ -10,7 +10,7 @@ interface AppstoreContextType {
     appUserData: String | undefined,
     appUserId: String
   };
-  submitAppUserData: () => [submitResults: (data: string) => void, result: any];
+  submitAppUserData: () => [(data: string) => void, any];
   useMakeApiRequest: (input: MakeApiRequestParams, skip: boolean) => { refetch: any, data: any };
 }
 
