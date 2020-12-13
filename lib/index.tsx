@@ -60,8 +60,8 @@ export interface ManifestType {
 export interface UnserializedSubrouteData {
   type_specific_data: UnserializedSubrouteTypeSpecificData;
   name: string;
-  subroute_slug: string;
-  subroute_type: SubrouteType;
+  slug: string;
+  type: SubrouteType;
 }
 
 export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
@@ -79,7 +79,7 @@ export interface UnserializedAssessmentData {
   short_description: string;
   suggested_duration_in_minutes: number;
   time_text: string;
-  type: string;
+  type_description: string;
   why_take: string;
 }
 
