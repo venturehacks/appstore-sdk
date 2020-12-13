@@ -7,11 +7,11 @@ interface AppstoreContextType {
     appUserDataLoading: boolean,
     appUserDataCalled: boolean,
     appUserDataError: any,
-    appUserData: String,
+    appUserData: String | undefined,
     appUserId: String
   };
-  submitAppUserData: () => void;
-  makeApiRequest: (input: MakeApiRequestParams) => any;
+  submitAppUserData: () => [submitResults: (data: string) => void, result: any];
+  useMakeApiRequest: (input: MakeApiRequestParams) => { refetch: any, data: any };
 }
 
 export const AppstoreContext = React.createContext({} as AppstoreContextType);
