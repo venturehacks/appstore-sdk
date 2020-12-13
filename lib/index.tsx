@@ -11,7 +11,7 @@ interface AppstoreContextType {
     appUserId: String
   };
   submitAppUserData: () => [submitResults: (data: string) => void, result: any];
-  useMakeApiRequest: (input: MakeApiRequestParams) => { refetch: any, data: any };
+  useMakeApiRequest: (input: MakeApiRequestParams, skip: boolean) => { refetch: any, data: any };
 }
 
 export const AppstoreContext = React.createContext({} as AppstoreContextType);
