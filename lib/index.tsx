@@ -25,15 +25,18 @@ export interface CustomFieldType {
 
 export interface GetResultsObjectType {
   appSlug: string;
-  subRouteSlug: string;
-  dateCompleted: Date;
+  subrouteSlug: string;
+  dateCompletedAt: Date;
   nextAttemptDate: Date;
   attemptsUsed: number | undefined;
   maxAttempts: number | undefined;
   customFields: CustomFieldType[] | undefined;
 }
 
-export type RequestMethod = 'GET' | 'POST';
+export enum RequestMethod {
+  GET = "GET",
+  POST = "POST",
+}
 export interface HeaderOrParamType {
   name: string;
   value: string;
