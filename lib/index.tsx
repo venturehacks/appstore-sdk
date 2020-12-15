@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 
 interface AppstoreContextType {
   appUserId: string;
-  endUserSession: () => void;
-  useAppUserData: () => { 
+  endAppUserSession: () => void;
+  useAppUserDatastore: () => {
     appUserDataLoading: boolean,
     appUserDataCalled: boolean,
     appUserDataError: any,
     appUserData: String | undefined,
     appUserId: String
   };
-  submitAppUserData: () => [(data: string) => void, any];
+  useSubmitAppUserDatastore: () => [(data: string) => void, any];
   useMakeApiRequest: (input: MakeApiRequestParams, skip: boolean) => { refetch: any, data: any };
 }
 
