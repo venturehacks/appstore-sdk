@@ -1,22 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 interface AppstoreContextType {
   appUserId: string;
   endAppUserSession: () => void;
   useAppUserDatastore: () => {
-    appUserDataLoading: boolean,
-    appUserDataCalled: boolean,
-    appUserDataError: any,
-    appUserData: String | undefined,
-    appUserId: String
+    appUserDataLoading: boolean;
+    appUserDataCalled: boolean;
+    appUserDataError: any;
+    appUserData: string | undefined;
+    appUserId: string;
   };
   useSubmitAppUserDatastore: () => [(data: string) => void, any];
-  useMakeApiRequest: (input: MakeApiRequestParams, skip: boolean) => { refetch: any, data: any };
+  useMakeApiRequest: (
+    input: MakeApiRequestParams,
+    skip: boolean
+  ) => { refetch: any; data: any };
 }
 
 export const AppstoreContext = React.createContext({} as AppstoreContextType);
 
-export type GetResultsType = GetResultsObjectType[]
+export type GetResultsType = GetResultsObjectType[];
 
 export interface CustomFieldType {
   title: string;
@@ -86,5 +89,5 @@ export interface UnserializedAssessmentData {
   why_take: string;
 }
 
-export type DifficultyType = 'EASY' | 'MEDIUM' | 'HARD';
-export type SubrouteType = 'assessment';
+export type DifficultyType = "EASY" | "MEDIUM" | "HARD";
+export type SubrouteType = "assessment";
