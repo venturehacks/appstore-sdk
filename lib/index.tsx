@@ -90,5 +90,5 @@ export interface UnserializedAssessmentData {
   why_take: string;
 }
 
-export type DifficultyType = 'EASY' | 'MEDIUM' | 'HARD' | "N/A";
-export type SubrouteType = 'assessment';
+export type DifficultyType = "EASY" | "MEDIUM" | "HARD" | "N/A";
+export type SubrouteType = "assessment";
