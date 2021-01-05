@@ -78,6 +78,7 @@ export interface UnserializedAssessmentData {
   categories: string[];
   difficulty: DifficultyType;
   example_header: string;
+  format: string;
   grade_shape: string;
   long_description: string;
   relevant_roles: string[];
@@ -89,5 +90,5 @@ export interface UnserializedAssessmentData {
   why_take: string;
 }
 
-export type DifficultyType = "EASY" | "MEDIUM" | "HARD";
+export type DifficultyType = "EASY" | "MEDIUM" | "HARD" | "N/A";
 export type SubrouteType = "assessment";
