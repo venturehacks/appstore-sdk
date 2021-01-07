@@ -86,6 +86,7 @@ export interface UnserializedAssessmentData {
   short_description: string;
   suggested_duration_in_minutes: number;
   time_text: string;
+  tips: string[];
   type_description: string;
   why_take: string;
 }
