@@ -15,6 +15,8 @@ interface AppstoreContextType {
     input: MakeApiRequestParams,
     skip: boolean
   ) => { refetch: any; data: any };
+  getAppUserDatastore: () => Promise<object>;
+  setAppUserDatastore: (data: string) => Promise<void>;
 }
 
 export const AppstoreContext = React.createContext({} as AppstoreContextType);
@@ -29,8 +31,8 @@ export interface CustomFieldType {
 export interface GetResultsObjectType {
   appSlug: string;
   subrouteSlug: string;
-  dateCompletedAt: Date;
-  nextAttemptDate: Date;
+  dateCompletedAt: Date | string;
+  nextAttemptDate: Date | string;
   attemptsUsed: number | undefined;
   maxAttempts: number | undefined;
   customFields: CustomFieldType[] | undefined;
@@ -76,7 +78,7 @@ export interface UnserializedAssessmentData {
   allotted_duration_in_minutes: number;
   autograding: string;
   categories: string[];
-  difficulty: DifficultyType;
+  difficulty: AssessmentDifficultyType;
   example_header: string;
   format: string;
   grade_shape: string;
@@ -91,5 +93,9 @@ export interface UnserializedAssessmentData {
   why_take: string;
 }
 
-export type DifficultyType = "EASY" | "MEDIUM" | "HARD" | "N/A";
+export declare type AssessmentDifficultyType =
+  | "easy"
+  | "medium"
+  | "hard"
+  | "n/a";
 export type SubrouteType = "assessment";
