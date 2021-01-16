@@ -16,7 +16,7 @@ interface AppstoreContextType {
     skip: boolean
   ) => { refetch: any; data: any };
   getAppUserDatastore: () => Promise<object>;
-  setAppUserDatastore: (data: object) => Promise<void>;
+  setAppUserDatastore: (data: string) => Promise<void>;
 }
 
 export const AppstoreContext = React.createContext({} as AppstoreContextType);
