@@ -77,6 +77,7 @@ export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
 export interface UnserializedAssessmentData {
   allotted_duration_in_minutes: number;
   autograding: string;
+  best_for_who: string;
   categories: string[];
   difficulty: AssessmentDifficultyType;
   example_header: string;
