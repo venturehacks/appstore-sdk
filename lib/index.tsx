@@ -93,8 +93,8 @@ export interface UnserializedAssessmentData {
 }
 
 export declare type AssessmentDifficultyType =
-  | "easy"
-  | "medium"
-  | "hard"
-  | "n/a";
+  | "EASY"
+  | "MEDIUM"
+  | "HARD"
+  | "N/A";
 export type SubrouteType = "assessment";
