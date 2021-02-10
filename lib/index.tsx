@@ -1,16 +1,27 @@
 import React, { useEffect } from "react";
 
+// TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
-  appUserId: string;
-  endAppUserSession: () => void;
-  useAppUserDatastore: () => {
+  appUserId?: string;
+  vendorUserId?: string;
+  endAppUserSession?: () => void;
+  endVendorUserSession?: () => void;
+  useAppUserDatastore?: () => {
     appUserDataLoading: boolean;
     appUserDataCalled: boolean;
     appUserDataError: any;
     appUserData: string | undefined;
     appUserId: string;
   };
-  useSubmitAppUserDatastore: () => [(data: string) => void, any];
+  useVendorUserDatastore?: () => {
+    vendorUserDataLoading: boolean;
+    vendorUserDataCalled: boolean;
+    vendorUserDataError: any;
+    vendorUserData: string | undefined;
+    vendorUserId: string;
+  };
+  useSubmitAppUserDatastore?: () => [(data: string) => void, any];
+  useSubmitVendorUserDatastore?: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
     skip: boolean
@@ -27,7 +38,8 @@ export interface CustomFieldType {
 }
 
 export interface GetResultsObjectType {
-  appSlug: string;
+  appSlug?: string;
+  vendorSlug?: string;
   subrouteSlug: string;
   dateCompletedAt: Date | string;
   nextAttemptDate: Date | string;
@@ -54,7 +66,8 @@ export interface MakeApiRequestParams {
   body?: string;
 }
 export interface ManifestType {
-  app_slug: string;
+  app_slug?: string;
+  vendor_slug?: string;
   author: string;
   description: string;
   homepage_url: string;
