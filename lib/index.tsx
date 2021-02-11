@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 // TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
   appUserId?: string;
-  vendorUserId?: string;
+  appstoreUserId?: string;
   endAppUserSession?: () => void;
-  endVendorUserSession?: () => void;
+  endAppstoreUserSession?: () => void;
   useAppUserDatastore?: () => {
     appUserDataLoading: boolean;
     appUserDataCalled: boolean;
@@ -13,15 +13,15 @@ interface AppstoreContextType {
     appUserData: string | undefined;
     appUserId: string;
   };
-  useVendorUserDatastore?: () => {
-    vendorUserDataLoading: boolean;
-    vendorUserDataCalled: boolean;
-    vendorUserDataError: any;
-    vendorUserData: string | undefined;
-    vendorUserId: string;
+  useDatastore?: () => {
+    dataLoading: boolean;
+    dataCalled: boolean;
+    dataError: any;
+    data: string | undefined;
+    appstoreUserId: string;
   };
   useSubmitAppUserDatastore?: () => [(data: string) => void, any];
-  useSubmitVendorUserDatastore?: () => [(data: string) => void, any];
+  useSubmitDatastore?: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
     skip: boolean
