@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 
+// TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
   appUserId: string;
+  appstoreUserId?: string;
   endAppUserSession: () => void;
+  endAppstoreUserSession?: () => void;
   useAppUserDatastore: () => {
     appUserDataLoading: boolean;
     appUserDataCalled: boolean;
@@ -10,7 +13,15 @@ interface AppstoreContextType {
     appUserData: string | undefined;
     appUserId: string;
   };
+  useDatastore?: () => {
+    dataLoading: boolean;
+    dataCalled: boolean;
+    dataError: any;
+    data: string | undefined;
+    appstoreUserId: string;
+  };
   useSubmitAppUserDatastore: () => [(data: string) => void, any];
+  useSubmitDatastore?: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
     skip: boolean
@@ -27,7 +38,8 @@ export interface CustomFieldType {
 }
 
 export interface GetResultsObjectType {
-  appSlug: string;
+  appSlug?: string;
+  vendorSlug?: string;
   subrouteSlug: string;
   dateCompletedAt: Date | string;
   nextAttemptDate: Date | string;
@@ -54,7 +66,8 @@ export interface MakeApiRequestParams {
   body?: string;
 }
 export interface ManifestType {
-  app_slug: string;
+  app_slug?: string;
+  vendor_slug?: string;
   author: string;
   description: string;
   homepage_url: string;
