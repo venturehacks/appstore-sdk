@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 
 // TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
-  appUserId?: string;
+  appUserId: string;
   appstoreUserId?: string;
-  endAppUserSession?: () => void;
+  endAppUserSession: () => void;
   endAppstoreUserSession?: () => void;
-  useAppUserDatastore?: () => {
+  useAppUserDatastore: () => {
     appUserDataLoading: boolean;
     appUserDataCalled: boolean;
     appUserDataError: any;
@@ -20,7 +20,7 @@ interface AppstoreContextType {
     data: string | undefined;
     appstoreUserId: string;
   };
-  useSubmitAppUserDatastore?: () => [(data: string) => void, any];
+  useSubmitAppUserDatastore: () => [(data: string) => void, any];
   useSubmitDatastore?: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
