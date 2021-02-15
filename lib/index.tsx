@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 // TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
   appUserId: string;
-  appstoreUserId: string;
+  appstoreUserId?: string;
   endAppUserSession: () => void;
-  endAppstoreUserSession: () => void;
+  endAppstoreUserSession?: () => void;
   useAppUserDatastore: () => {
     appUserDataLoading: boolean;
     appUserDataCalled: boolean;
@@ -13,7 +13,7 @@ interface AppstoreContextType {
     appUserData: string | undefined;
     appUserId: string;
   };
-  useDatastore: () => {
+  useDatastore?: () => {
     dataLoading: boolean;
     dataCalled: boolean;
     dataError: any;
@@ -21,7 +21,7 @@ interface AppstoreContextType {
     appstoreUserId: string;
   };
   useSubmitAppUserDatastore: () => [(data: string) => void, any];
-  useSubmitDatastore: () => [(data: string) => void, any];
+  useSubmitDatastore?: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
     skip: boolean
@@ -38,8 +38,9 @@ export interface CustomFieldType {
 }
 
 export interface GetResultsObjectType {
-  appSlug: string;
-  vendorSlug: string;
+  appSlug?: string;
+  vendorSlug?: string;
+  subrouteSlug: string;
   dateCompletedAt: Date | string;
   nextAttemptDate: Date | string;
   attemptsUsed: number | undefined;
@@ -65,24 +66,24 @@ export interface MakeApiRequestParams {
   body?: string;
 }
 export interface ManifestType {
-  app_slug: string;
-  vendor_slug: string;
+  app_slug?: string;
+  vendor_slug?: string;
   author: string;
   description: string;
   homepage_url: string;
   name: string;
-  apps: UnserializedAppData[];
+  subroutes: UnserializedSubrouteData[];
   version: number;
 }
 
-export interface UnserializedAppData {
-  type_specific_data: UnserializedAppTypeSpecificData;
+export interface UnserializedSubrouteData {
+  type_specific_data: UnserializedSubrouteTypeSpecificData;
   name: string;
   slug: string;
-  type: AppType;
+  type: SubrouteType;
 }
 
-export type UnserializedAppTypeSpecificData = UnserializedAssessmentData;
+export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
 
 export interface UnserializedAssessmentData {
   allotted_duration_in_minutes: number;
@@ -109,4 +110,4 @@ export declare type AssessmentDifficultyType =
   | "MEDIUM"
   | "HARD"
   | "N/A";
-export type AppType = "assessment";
+export type SubrouteType = "assessment";
