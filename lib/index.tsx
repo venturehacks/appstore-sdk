@@ -38,9 +38,8 @@ export interface CustomFieldType {
 }
 
 export interface GetResultsObjectType {
-  appSlug?: string;
+  appSlug: string;
   vendorSlug?: string;
-  subrouteSlug: string;
   dateCompletedAt: Date | string;
   nextAttemptDate: Date | string;
   attemptsUsed: number | undefined;
@@ -72,18 +71,18 @@ export interface ManifestType {
   description: string;
   homepage_url: string;
   name: string;
-  subroutes: UnserializedSubrouteData[];
+  apps: UnserializedAppData[];
   version: number;
 }
 
-export interface UnserializedSubrouteData {
-  type_specific_data: UnserializedSubrouteTypeSpecificData;
+export interface UnserializedAppData {
+  type_specific_data: UnserializedAppTypeSpecificData;
   name: string;
   slug: string;
-  type: SubrouteType;
+  type: AppType;
 }
 
-export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
+export type UnserializedAppTypeSpecificData = UnserializedAssessmentData;
 
 export interface UnserializedAssessmentData {
   allotted_duration_in_minutes: number;
@@ -110,4 +109,4 @@ export declare type AssessmentDifficultyType =
   | "MEDIUM"
   | "HARD"
   | "N/A";
-export type SubrouteType = "assessment";
+export type AppType = "assessment";
