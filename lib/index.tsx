@@ -72,7 +72,8 @@ export interface ManifestType {
   description: string;
   homepage_url: string;
   name: string;
-  apps: UnserializedAppData[];
+  apps?: UnserializedAppData[];
+  subroutes: UnserializedSubrouteData[];
   version: number;
 }
 
