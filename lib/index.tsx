@@ -38,9 +38,9 @@ export interface CustomFieldType {
 }
 
 export interface GetResultsObjectType {
-  appSlug: string;
-  vendorSlug: string;
-  subrouteSlug: string;
+  appSlug?: string;
+  vendorSlug?: string;
+  subrouteSlug?: string;
   dateCompletedAt: Date | string;
   nextAttemptDate: Date | string;
   attemptsUsed: number | undefined;
@@ -66,7 +66,7 @@ export interface MakeApiRequestParams {
   body?: string;
 }
 export interface ManifestType {
-  app_slug: string;
+  app_slug?: string;
   vendor_slug: string;
   author: string;
   description: string;
