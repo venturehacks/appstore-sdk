@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 
 // TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
-  appUserId: string;
+  appUserId?: string;
   appstoreUserId: string;
-  endAppUserSession: () => void;
+  endAppUserSession?: () => void;
   endAppstoreUserSession: () => void;
-  useAppUserDatastore: () => {
+  useAppUserDatastore?: () => {
     appUserDataLoading: boolean;
     appUserDataCalled: boolean;
     appUserDataError: any;
@@ -20,7 +20,7 @@ interface AppstoreContextType {
     data: string | undefined;
     appstoreUserId: string;
   };
-  useSubmitAppUserDatastore: () => [(data: string) => void, any];
+  useSubmitAppUserDatastore?: () => [(data: string) => void, any];
   useSubmitDatastore: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
@@ -38,9 +38,8 @@ export interface CustomFieldType {
 }
 
 export interface GetResultsObjectType {
-  appSlug?: string;
-  vendorSlug?: string;
-  subrouteSlug?: string;
+  appSlug: string;
+  vendorSlug: string;
   dateCompletedAt: Date | string;
   nextAttemptDate: Date | string;
   attemptsUsed: number | undefined;
@@ -72,8 +71,7 @@ export interface ManifestType {
   description: string;
   homepage_url: string;
   name: string;
-  apps?: UnserializedAppData[];
-  subroutes: UnserializedSubrouteData[];
+  apps: UnserializedAppData[];
   version: number;
 }
 
@@ -84,18 +82,7 @@ export interface UnserializedAppData {
   type: AppType;
 }
 
-// TODO: Remove after Subroute -> App rename is complete (DF)
-export interface UnserializedSubrouteData {
-  type_specific_data: UnserializedSubrouteTypeSpecificData;
-  name: string;
-  slug: string;
-  type: SubrouteType;
-}
-
 export type UnserializedAppTypeSpecificData = UnserializedAssessmentData;
-
-// TODO: Remove after Subroute -> App rename is complete (DF)
-export type UnserializedSubrouteTypeSpecificData = UnserializedAssessmentData;
 
 export interface UnserializedAssessmentData {
   allotted_duration_in_minutes: number;
@@ -123,6 +110,3 @@ export declare type AssessmentDifficultyType =
   | "HARD"
   | "N/A";
 export type AppType = "assessment";
-
-// TODO: Remove after Subroute -> App rename is complete (DF)
-export type SubrouteType = "assessment";
