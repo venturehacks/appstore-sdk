@@ -93,6 +93,7 @@ export interface UnserializedAssessmentData {
   example_header: string;
   format: string;
   grade_shape: string;
+  instructions?: string[];
   long_description: string;
   relevant_roles: string[];
   retake_policy: string;
