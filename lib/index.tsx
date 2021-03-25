@@ -62,6 +62,7 @@ export interface ManifestType {
   name: string;
   apps: UnserializedAppData[];
   version: number;
+  resources: string[];
 }
 
 export interface UnserializedAppData {
