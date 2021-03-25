@@ -1,18 +1,8 @@
 import React, { useEffect } from "react";
 
-// TODO (DF): remove app references in favor of vendor once it is safe
 interface AppstoreContextType {
-  appUserId?: string;
   appstoreUserId: string;
-  endAppUserSession?: () => void;
   endAppstoreUserSession: () => void;
-  useAppUserDatastore?: () => {
-    appUserDataLoading: boolean;
-    appUserDataCalled: boolean;
-    appUserDataError: any;
-    appUserData: string | undefined;
-    appUserId: string;
-  };
   useDatastore: () => {
     dataLoading: boolean;
     dataCalled: boolean;
@@ -20,7 +10,6 @@ interface AppstoreContextType {
     data: string | undefined;
     appstoreUserId: string;
   };
-  useSubmitAppUserDatastore?: () => [(data: string) => void, any];
   useSubmitDatastore: () => [(data: string) => void, any];
   useMakeApiRequest: (
     input: MakeApiRequestParams,
@@ -95,7 +84,9 @@ export interface UnserializedAssessmentData {
   grade_shape: string;
   instructions?: string[];
   long_description: string;
+  minimum_passing_score: number;
   relevant_roles: string[];
+  resources: string[];
   retake_policy: string;
   short_description: string;
   suggested_duration_in_minutes: number;
