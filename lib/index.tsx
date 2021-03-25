@@ -62,7 +62,17 @@ export interface ManifestType {
   name: string;
   apps: UnserializedAppData[];
   version: number;
-  resources: string[];
+  resources: ResourceList;
+}
+
+export interface ResourceList {
+  [key: string]: ResourceType;
+}
+
+export interface ResourceType {
+  description: string;
+  title: string;
+  url: string;
 }
 
 export interface UnserializedAppData {
